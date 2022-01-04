@@ -6,9 +6,9 @@ public class StepTracker {
     HashMap<String, int[]> stepInfo = new HashMap<>();
     int stepsGoal = 10000;
     Scanner scanner = new Scanner(System.in);
+    final int[] days = new int[30];
 
     StepTracker() {
-        int[] days = new int[30];
         stepInfo.put("январь", days);
         stepInfo.put("февраль", days);
         stepInfo.put("март", days);
@@ -28,10 +28,10 @@ public class StepTracker {
         System.out.println("Укажите название месяца");
         String month = checkedMonth();
         System.out.println("Укажите день от 1 до 30");
-        int day = checkedDay();
+        final int day = checkedDay();
         System.out.println("Сколько Вы прошли в указанный день?");
         int stepsCompleted = checkedCompletedSteps();
-        int[] days = stepInfo.get(month);
+        final int[] days = stepInfo.get(month);
         days[day - 1] += stepsCompleted;
         stepInfo.put(month, days);
         if (month.equals("март") || month.equals("август")) {
